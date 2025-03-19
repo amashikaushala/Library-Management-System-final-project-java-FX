@@ -22,7 +22,7 @@
             <JFXTextField fx:id="txtPublisherId" layoutX="43.0" layoutY="199.0" prefHeight="26.0" prefWidth="179.0" promptText="Publisher Id" />
             <JFXTextField fx:id="txtPublisherLocation" layoutX="49.0" layoutY="268.0" prefHeight="26.0" prefWidth="179.0" promptText="Publisher Location" />
             <JFXTextField fx:id="txtPublisherName" layoutX="49.0" layoutY="226.0" prefHeight="26.0" prefWidth="179.0" promptText="Publisher Name" />
-            <Button layoutX="24.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnAddOnAction" text="Add" />
+            <Button layoutX="24.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save" />
             <Button layoutX="98.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Update" />
             <Button layoutX="171.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
             <Button layoutX="241.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnClearOnAction" text="Clear" />
@@ -47,7 +47,7 @@
             <JFXTextField fx:id="txtAuthorId" layoutX="84.0" layoutY="203.0" promptText="Author Id" />
             <JFXTextField fx:id="txtAuthorName" layoutX="92.0" layoutY="242.0" promptText="Author Name" />
             <JFXTextField fx:id="txtAuthorContact" layoutX="99.0" layoutY="286.0" promptText="Author Contact" />
-            <Button layoutX="26.0" layoutY="335.0" mnemonicParsing="false" onAction="#btnAddOnAction" text="Add" />
+            <Button layoutX="26.0" layoutY="335.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save" />
             <Button layoutX="112.0" layoutY="335.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Update" />
             <Button layoutX="203.0" layoutY="335.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
             <Button layoutX="286.0" layoutY="335.0" mnemonicParsing="false" onAction="#btnClearOnAction" text="Clear" />

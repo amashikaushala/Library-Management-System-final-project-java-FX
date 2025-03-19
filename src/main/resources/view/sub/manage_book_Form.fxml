@@ -21,7 +21,7 @@
           <TableColumn fx:id="colOption" prefWidth="63.20000305175782" text="Option" />
         </columns>
       </TableView>
-      <Button layoutX="246.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnAddOnAction" text="Add" />
+      <Button layoutX="246.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save" />
       <Button layoutX="319.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Update" />
       <Button layoutX="498.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnClearOnAction" text="clear" />
       <Button layoutX="410.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
@@ -36,7 +36,7 @@
       <TableView fx:id="tblAuthors" layoutX="17.0" layoutY="554.0" prefHeight="114.0" prefWidth="178.0">
         <columns>
           <TableColumn fx:id="colAuthorsName" prefWidth="102.4000244140625" text="Author Name" />
-          <TableColumn fx:id="colOption" prefWidth="48.0" text="Option" />
+          <TableColumn fx:id="colAuthorOption" prefWidth="48.0" text="Option" />
         </columns>
       </TableView>
    </children>

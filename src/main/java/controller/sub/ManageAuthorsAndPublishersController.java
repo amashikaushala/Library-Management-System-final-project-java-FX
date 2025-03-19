@@ -57,17 +57,17 @@ public class ManageAuthorsAndPublishersController {
     private JFXTextField txtPublisherName;
 
     @FXML
-    void btnAddOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void btnClearOnAction(ActionEvent event) {
 
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnSaveOnAction(ActionEvent event) {
 
     }
 

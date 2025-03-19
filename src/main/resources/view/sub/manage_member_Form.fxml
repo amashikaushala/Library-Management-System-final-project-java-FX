@@ -13,11 +13,11 @@
       <JFXTextField fx:id="txtMemberAddress" layoutX="14.0" layoutY="262.0" promptText="Member Address" />
       <JFXTextField fx:id="txtMemberEmail" layoutX="13.0" layoutY="316.0" onAction="#txtMemberEmailOnAction" promptText="Member Email" />
       <JFXTextField fx:id="txtMemberContactNumber" layoutX="14.0" layoutY="381.0" onAction="#txtMemberContactOnAction" promptText="Member ContactNumber" />
-      <Button layoutX="35.0" layoutY="439.0" mnemonicParsing="false" onAction="#btnAddOnAction" text="Add Customer" />
+      <Button layoutX="35.0" layoutY="439.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save Customer" />
       <Button layoutX="29.0" layoutY="563.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete Customer" />
       <Button layoutX="27.0" layoutY="618.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Update Customer" />
       <Button layoutX="33.0" layoutY="501.0" mnemonicParsing="false" onAction="#btnclearOnAction" text="Clear Customer" />
-      <TableView fx:id="tblMember" layoutX="182.0" layoutY="201.0" prefHeight="455.0" prefWidth="436.0">
+      <TableView fx:id="tblMember" layoutX="164.0" layoutY="201.0" prefHeight="455.0" prefWidth="436.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="57.600006103515625" text=" Id" />
           <TableColumn fx:id="colName" prefWidth="92.80000305175781" text=" Name" />

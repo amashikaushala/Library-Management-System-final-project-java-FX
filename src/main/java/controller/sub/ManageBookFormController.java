@@ -16,6 +16,9 @@ public class ManageBookFormController {
     private ComboBox<?> cmdMainCategory;
 
     @FXML
+    private TableColumn<?, ?> colAuthorsName;
+
+    @FXML
     private TableColumn<?, ?> colBookISBN;
 
     @FXML
@@ -32,6 +35,9 @@ public class ManageBookFormController {
 
     @FXML
     private TableColumn<?, ?> colOption;
+
+    @FXML
+    private TableView<?> tblAuthors;
 
     @FXML
     private TableView<?> tblBook;
@@ -57,7 +63,7 @@ public class ManageBookFormController {
     }
 
     @FXML
-    void btnAddOnAction(ActionEvent event) {
+    void btnClearOnAction(ActionEvent event) {
 
     }
 
@@ -66,13 +72,14 @@ public class ManageBookFormController {
 
     }
 
+    @FXML
+    void btnSaveOnAction(ActionEvent event) {
 
+    }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
 
     }
 
-    public void btnClearOnAction(ActionEvent actionEvent) {
-    }
 }

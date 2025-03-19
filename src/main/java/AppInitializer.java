@@ -7,8 +7,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static javafx.fxml.FXMLLoader.load;
-
 public class AppInitializer extends Application {
 
     public static void main(String[] args) {
@@ -16,16 +14,17 @@ public class AppInitializer extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) {
         try {
 
-             Parent load = FXMLLoader.load(getClass().getResource("/view/loginForm.fxml"));
-            Scene scene=new Scene(load);
+            Parent load=FXMLLoader.load(getClass().getResource("/view/loginForm.fxml"));
+
+            Scene scene= new Scene(load);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
-            new Alert(Alert.AlertType.ERROR,"Failed to load the Form - contact Developer").show();
-                    e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR,"Failed to Load the form-contact Developer");
+            e.printStackTrace();
         }
     }
 }
