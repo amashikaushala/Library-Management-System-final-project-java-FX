@@ -1,13 +1,15 @@
-package dto;
+package dto.custom;
 
 
+import dto.SuperDTO;
 import lombok.*;
 
 @NoArgsConstructor
 @ToString
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
-public class BookDTO {
+public class BookDTO implements SuperDTO {
 
         private int id;
         private String name;

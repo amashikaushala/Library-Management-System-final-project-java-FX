@@ -29,7 +29,7 @@ loadUI("manage_borrow_book_Form.fxml");
     }
 
     @FXML
-    void btnManageAuthorsandPublishersOnAction(ActionEvent event) {
+    void btnManageAuthorsandPublishersOnAction(ActionEvent event)throws IOException {
 loadUI("manage_authors and publishers_Form.fxml");
     }
 

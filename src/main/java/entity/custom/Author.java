@@ -1,6 +1,8 @@
-package entity;
+package entity.custom;
 
-public class Author {
+import entity.SuperEntity;
+
+public class Author implements SuperEntity {
     private int id;
     private  String name;
     private String contact;
@@ -18,7 +20,7 @@ public class Author {
         return id;
     }
 
-    public void setId(){
+    public void setId(int anInt){
         this.id=id;
     }
 
@@ -26,7 +28,7 @@ public class Author {
         return name;
     }
 
-    public void setName(){
+    public void setName(String string){
         this.name=name;
     }
 
@@ -34,7 +36,7 @@ public class Author {
         return contact;
     }
 
-    public void setContact(){
+    public void setContact(String string){
         this.contact=contact;
     }
 }

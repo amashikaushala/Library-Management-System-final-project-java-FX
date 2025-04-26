@@ -1,16 +1,20 @@
 package repository.custom.impl;
 
-import entity.Member;
+import entity.custom.Member;
+import repository.custom.MemberRepository;
 import util.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
-public class MemberRepositoryIMPL {
-    public boolean saveMember(Member member) throws SQLException, ClassNotFoundException {
+public class MemberRepositoryIMPL implements MemberRepository {
+
+   @Override
+    public boolean save(Member member) throws SQLException, ClassNotFoundException {
         Connection connection = DBConnection.getInstance().getConnection();
 
         if (connection == null) {
@@ -28,7 +32,7 @@ public class MemberRepositoryIMPL {
             return ps.executeUpdate() > 0;
         }
     }
-
+    @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
         Connection connection = DBConnection.getInstance().getConnection();
         if (connection == null) {
@@ -41,6 +45,12 @@ public class MemberRepositoryIMPL {
         }
     }
 
+    @Override
+    public List<Member> getAll() throws SQLException, ClassNotFoundException {
+        return List.of();
+    }
+
+    @Override
     public boolean update(Member member) throws SQLException, ClassNotFoundException {
         Connection  connection =DBConnection.getInstance().getConnection();
         PreparedStatement ps =connection.prepareStatement("UPDATE member set name=?,address=?,email=?,contact=? where id=?");
@@ -51,8 +61,8 @@ public class MemberRepositoryIMPL {
         ps.setString(5, member.getId());
         return ps.executeUpdate()>0;
     }
-
-    public Optional<Member> searchCustomer(String customerid) throws SQLException, ClassNotFoundException {
+@Override
+    public Optional<Member> search(String customerid) throws SQLException, ClassNotFoundException {
         Connection connection =DBConnection.getInstance().getConnection();
         PreparedStatement preparedStatement=  connection.prepareStatement("SELECT * FROM member WHERE id=?");
         preparedStatement.setString(1,customerid);

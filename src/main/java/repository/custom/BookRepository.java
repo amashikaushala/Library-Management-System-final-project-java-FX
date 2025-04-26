@@ -1,17 +1,8 @@
 package repository.custom;
 
-import entity.Book;
+import entity.custom.Book;
+import repository.CrudRepository;
 
-import java.util.List;
+public interface BookRepository extends CrudRepository<Book,Integer> {
 
-public interface BookRepository {
-    List<Book> findAll();
-
-    boolean update(Book book);
-
-    boolean save(Book book);
-
-    void search(Integer integer);
-
-    boolean delete(Object integer);
 }

@@ -1,76 +1,108 @@
 package service.custom.impl;
 
-import dto.BookDTO;
-import entity.Book;
-import repository.custom.BookRepository;
-import repository.impl.BookRepositoryIMPL;
-import service.custom.BookException;
+import dto.custom.BookDTO;
+import entity.custom.Book;
+import repository.custom.impl.BookRepositoryIMPL;
 import service.custom.BookService;
+import util.exception.ServiceException;
+import util.exception.custom.BookException;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class BookServiceIMPL implements BookService {
 
-    private final BookRepository repository = new BookRepositoryIMPL();
+    private final BookRepositoryIMPL repository = new BookRepositoryIMPL();
+
 
     @Override
-    public boolean add(BookDTO bookDTO) throws BookException {
-        Book book = convertDtoToEntity(bookDTO);
+    public boolean save(BookDTO bookDTO) throws BookException {
+    Book book = convertDtoToEntity(bookDTO);
         try {
-            return  repository.save(book);
-        } catch (SQLException e) {
-            if (e.getErrorCode() == 1062) {
-                throw new BookException("ID Already Exists - Cannot Save.", e);
-            } else if (e.getErrorCode() == 1406) {
-                throw new BookException("Data is Too Large for a Field.", e);
-            } else {
-                throw new BookException("Database Error - " + e.getMessage(), e);
-            }
-        } catch (Exception e) {
+            repository.save(book);
+        } catch (SQLException | ClassNotFoundException e) {
+            if (((SQLException)e).getErrorCode()==1062){
+                throw new BookException("ID Already Exists-Cannot Save.");
+            }else if (((SQLException)e).getErrorCode()==1406){
+                String message = ((SQLException)e).getMessage();
+                String[]s=message.split("");
+                throw new BookException("Data is To Large For "+s[1]);
 
-            
-            throw new BookException("Failed to add book", e);
         }
+            throw new BookException("Error Occured Developer",e);
+        }
+        return false;
     }
 
     @Override
     public boolean update(BookDTO bookDTO) throws BookException {
-        Book book = convertDtoToEntity(bookDTO);
+    Book book= convertDtoToEntity(bookDTO);
         try {
-            return repository.update(book);
+            repository.update(book);
+        } catch (SQLException | ClassNotFoundException e) {
+            if (((SQLException) e).getErrorCode() == 1406) {
+                String message = ((SQLException) e).getMessage();
+                String[] s = message.split("");
+                throw new BookException("Data is To Large For " + s[1]);
+            }
+            throw new BookException("Error Occured Developer",e);
 
-        } catch (SQLException|ClassNotFoundException e) {
-            throw new BookException("Failed to update book", e);
         }
+            return false;
     }
 
     @Override
-    public boolean delete(BookDTO bookDTO) throws BookException {
+    public boolean delete(BookDTO bookDTO) throws ServiceException {
+        return false;
+    }
+
+
+    @Override
+    public boolean delete(Integer integer) throws BookException {
         try {
-            Object integer = null;
-            return repository.delete(integer);
-        } catch (SQLException|ClassNotFoundException e) {
-            throw new BookException("Failed to delete book", e);
+            repository.delete(integer);
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new BookException("Error Occured Contact Developer",e);
         }
+        return false;
     }
 
     @Override
-    public Optional<BookDTO> search(Integer integer) {
-        repository.search(integer);
+    public Optional<BookDTO> search(Integer integer) throws BookException {
+
+        try {Optional<Book> search= repository.search(integer);
+        if (search.isPresent()){
+            Book book=search.get();
+            BookDTO bookDTO=convertEntityToDto(book);
+            return  Optional.of(bookDTO);
+        }
         return Optional.empty();
+
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new BookException("Contact Develpoer",e);
+        }
+
     }
 
     @Override
     public List<BookDTO> getAll() throws BookException {
         try {
-            List<Book> books = repository.findAll();
-            return books.stream().map(this::convertEntityToDto).toList();
-        } catch (Exception e) {
-            throw new BookException("Failed to retrieve book list", e);
+            List<Book> all=repository.getAll();
+            List<BookDTO>newList=new ArrayList<>();
+            for (Book book: all){
+                BookDTO bookDTO=convertEntityToDto(book);
+                newList.add(bookDTO);
+            }
+            return newList;
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new BookException("Contact Developer");
         }
+
     }
+
+
 
     private Book convertDtoToEntity(BookDTO dto) {
         Book book = new Book();
@@ -84,6 +116,7 @@ public class BookServiceIMPL implements BookService {
         return book;
     }
 
+
     private BookDTO convertEntityToDto(Book book) {
         BookDTO dto = new BookDTO();
         dto.setId(book.getId());
@@ -94,5 +127,10 @@ public class BookServiceIMPL implements BookService {
         dto.setMainCategoryId(book.getMainCategoryId());
         dto.setPublisherId(book.getPublisherId());
         return dto;
+
     }
+
+
 }
+
+

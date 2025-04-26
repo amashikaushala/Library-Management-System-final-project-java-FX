@@ -1,4 +1,7 @@
 package repository.custom;
 
-public interface PublisherRepository {
+import entity.custom.Publisher;
+import repository.CrudRepository;
+
+public interface PublisherRepository extends CrudRepository<Publisher,Integer> {
 }

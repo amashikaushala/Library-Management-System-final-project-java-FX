@@ -21,10 +21,10 @@
           <TableColumn fx:id="colOption" prefWidth="63.20000305175782" text="Option" />
         </columns>
       </TableView>
-      <Button layoutX="246.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save" />
-      <Button layoutX="319.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Update" />
-      <Button layoutX="498.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnClearOnAction" text="clear" />
-      <Button layoutX="410.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
+      <Button layoutX="246.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnSaveOnAction" style="-fx-background-color: #27ae60;" text="Save" />
+      <Button layoutX="319.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" style="-fx-background-color: #e67e22;" text="Update" />
+      <Button layoutX="498.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnClearOnAction" style="-fx-background-color: #1abc9c;" text="clear" />
+      <Button layoutX="410.0" layoutY="611.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" style="-fx-background-color: #e74c3c;" text="Delete" />
       <TableView fx:id="tblBook" layoutX="210.0" layoutY="151.0" prefHeight="398.0" prefWidth="400.0">
         <columns>
           <TableColumn fx:id="colBookId" prefWidth="75.0" text="Book Id" />
